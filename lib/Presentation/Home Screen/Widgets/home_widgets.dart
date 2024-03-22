@@ -25,7 +25,7 @@ class NavBarItem extends StatelessWidget {
           color: Colors.white,
         ),
         DoItCubit.get(context).currentIndex == index
-            ? const SizedBox(height: 0.0,)
+            ? const SizedBox()
             : Text(
               text,
               style: TextStyle(
