@@ -75,42 +75,6 @@ class HomeLayout extends StatelessWidget
                   text: 'Settings',
                   index: 2,
               ),
-              // Column(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children:
-              //   [
-              //     const Icon(
-              //       Icons.check_circle_outline,
-              //       color: Colors.white,
-              //     ),
-              //     cubit.currentIndex == 1
-              //         ? const SizedBox(height: 0.0,)
-              //         : const Text(
-              //       'Done',
-              //       style: TextStyle(
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // Column(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children:
-              //   [
-              //     const Icon(
-              //       Icons.settings,
-              //       color: Colors.white,
-              //     ),
-              //     cubit.currentIndex == 2
-              //         ? const SizedBox(height: 0.0,)
-              //         : const Text(
-              //       'Settings',
-              //       style: TextStyle(
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         );
