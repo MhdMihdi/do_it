@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:do_it/Bloc/Tasks%20Cubit/do_it_cubit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class buildTaskItem extends StatefulWidget {
@@ -187,10 +188,11 @@ class _buildTaskItemState extends State<buildTaskItem> {
                         '${widget.model['title']}',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 20.0.sp,
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
                       const SizedBox(
                         height: 10.0,
@@ -208,9 +210,9 @@ class _buildTaskItemState extends State<buildTaskItem> {
                           ),
                           Text(
                             '${widget.model['date']}',
-                            style: const TextStyle(
+                            style:  TextStyle(
                               color: Colors.white,
-                              fontSize: 17.0,
+                              fontSize: 17.0.sp,
                             ),
                           ),
                         ],
@@ -232,11 +234,12 @@ class _buildTaskItemState extends State<buildTaskItem> {
                               setState(() {
                                 widget.isChecked = value!;
                               });
-
-                              DoItCubit.get(context).updateDataBase(
-                                status:'done',
-                                id: widget.model['id'],
-                              );
+                              if(widget.isChecked==true) {
+                                DoItCubit.get(context).updateDataBase(
+                                  status: 'done',
+                                  id: widget.model['id'],
+                                );
+                              }
                             },
                             side: const BorderSide(
                               width: 2.0,
