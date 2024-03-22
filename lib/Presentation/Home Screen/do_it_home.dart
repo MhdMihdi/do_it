@@ -2,6 +2,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:do_it/Bloc/Tasks%20Cubit/do_it_cubit.dart';
+import 'package:do_it/Presentation/Home%20Screen/Widgets/home_widgets.dart';
 import 'package:do_it/Util/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,60 +60,57 @@ class HomeLayout extends StatelessWidget
             },
             items:
             [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                [
-                  const Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                  ),
-                  cubit.currentIndex == 0
-                      ? const SizedBox(height: 0.0,)
-                      : const Text(
-                    'Tasks',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              NavBarItem(
+                  icon: Icons.menu,
+                  text: 'Tasks',
+                  index: 0,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                [
-                  const Icon(
-                    Icons.check_circle_outline,
-                    color: Colors.white,
-                  ),
-                  cubit.currentIndex == 1
-                      ? const SizedBox(height: 0.0,)
-                      : const Text(
-                    'Done',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              NavBarItem(
+                  icon: Icons.check_circle_outline,
+                  text: 'Done',
+                  index: 1,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                [
-                  const Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  cubit.currentIndex == 2
-                      ? const SizedBox(height: 0.0,)
-                      : const Text(
-                    'Settings',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              NavBarItem(
+                  icon: Icons.settings,
+                  text: 'Settings',
+                  index: 2,
               ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children:
+              //   [
+              //     const Icon(
+              //       Icons.check_circle_outline,
+              //       color: Colors.white,
+              //     ),
+              //     cubit.currentIndex == 1
+              //         ? const SizedBox(height: 0.0,)
+              //         : const Text(
+              //       'Done',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children:
+              //   [
+              //     const Icon(
+              //       Icons.settings,
+              //       color: Colors.white,
+              //     ),
+              //     cubit.currentIndex == 2
+              //         ? const SizedBox(height: 0.0,)
+              //         : const Text(
+              //       'Settings',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         );

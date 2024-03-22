@@ -47,7 +47,6 @@ class MyApp extends StatelessWidget {
                 foregroundColor: Colors.white,
                 elevation: 0.0,
               ),
-
             ),
           );
         },
