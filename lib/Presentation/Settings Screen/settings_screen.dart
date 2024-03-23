@@ -1,22 +1,36 @@
 import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
+import 'package:do_it/Bloc/Theme%20Cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TasksCubit, TasksStates>(
+    return BlocConsumer<ThemeCubit, ThemeStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        return const Center(
-            child: Text(
-                'Settings Page',
-              style: TextStyle(
-                fontSize: 25.0,
+        var cubit=ThemeCubit.get(context);
+        return Scaffold(
+          body: Column(
+            children: [
+              Switch(
+                value: cubit.themeSwitch,
+                onChanged: (value)
+                {
+                   setState(() {
+                     cubit.themeSwitch = value;
+                   });
+                },
               ),
-            ),
+            ],
+          ),
         );
       },
     );

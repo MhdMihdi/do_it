@@ -1,4 +1,5 @@
 import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
+import 'package:do_it/Bloc/Theme%20Cubit/theme_cubit.dart';
 import 'package:do_it/Util/app_bloc_observer.dart';
 import 'package:do_it/Util/app_router.dart';
 import 'package:flutter/material.dart';
@@ -16,24 +17,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TasksCubit()..createDataBase(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+          TasksCubit()
+            ..createDataBase(),
+        ),
+        BlocProvider(
+          create: (context) => ThemeCubit(),
+        ),
+      ],
       child: BlocConsumer<TasksCubit, TasksStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return ScreenUtilInit(
-            designSize: const Size(360,690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            builder: (context,child) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                routes: AppRoutes.routes,
-                initialRoute: NamedRoutes.homeLayout,
-                theme: ThemeData(
-                  useMaterial3: true,
-                  scaffoldBackgroundColor: Colors.white,
-                  appBarTheme:  AppBarTheme(
+              designSize: const Size(360, 690),
+              minTextAdapt: true,
+              splitScreenMode: true,
+              builder: (context, child) {
+                return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  routes: AppRoutes.routes,
+                  initialRoute: NamedRoutes.homeLayout,
+                  theme: ThemeData(
+                    useMaterial3: true,
+                    scaffoldBackgroundColor: Colors.white,
+                    appBarTheme: AppBarTheme(
                       backgroundColor: Colors.teal,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
@@ -47,20 +57,21 @@ class MyApp extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 25.0.sp
                       ),
+                    ),
+                    floatingActionButtonTheme: FloatingActionButtonThemeData(
+                      backgroundColor: Colors.teal,
+                      foregroundColor: Colors.white,
+                      elevation: 0.0,
+                    ),
+                    progressIndicatorTheme: ProgressIndicatorThemeData(
+                      color: Colors.teal,
+                    ),
                   ),
-                  floatingActionButtonTheme: FloatingActionButtonThemeData(
-                    backgroundColor: Colors.teal,
-                    foregroundColor: Colors.white,
-                    elevation: 0.0,
-                  ),
-                  progressIndicatorTheme: ProgressIndicatorThemeData(
-                    color: Colors.teal,
-                  ),
-                ),
-              );
-            }
+                  darkTheme: ThemeData(),
+                  themeMode: ThemeMode.dark,
+                );
+              }
           );
-
         },
       ),
     );
