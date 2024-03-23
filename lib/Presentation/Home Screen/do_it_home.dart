@@ -16,10 +16,7 @@ class HomeLayout extends StatelessWidget
   Widget build(BuildContext context)
   {
     return BlocConsumer<DoItCubit, DoItStates>(
-      listener: (context, state)
-      {
-
-      },
+      listener: (context, state) {},
       builder: (context, state)
       {
         DoItCubit cubit=DoItCubit.get(context);
@@ -30,7 +27,15 @@ class HomeLayout extends StatelessWidget
               cubit.titles[cubit.currentIndex],
             ),
           ),
-          body: cubit.screens[cubit.currentIndex],
+          body: ConditionalBuilder(
+              condition: state is! AppGetDataBaseState,
+              builder:(context)=>
+                   Center(
+                     child: CircularProgressIndicator()
+                   ),
+              fallback: (context)=>
+                   cubit.screens[cubit.currentIndex],
+          ),
           floatingActionButton:ConditionalBuilder(
               condition: cubit.currentIndex==1||cubit.currentIndex==2,
               builder: (context)=>const SizedBox(),

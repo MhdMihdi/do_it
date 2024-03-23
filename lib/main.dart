@@ -53,6 +53,9 @@ class MyApp extends StatelessWidget {
                     foregroundColor: Colors.white,
                     elevation: 0.0,
                   ),
+                  progressIndicatorTheme: ProgressIndicatorThemeData(
+                    color: Colors.teal,
+                  ),
                 ),
               );
             }
