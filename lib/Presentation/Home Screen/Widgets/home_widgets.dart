@@ -24,7 +24,7 @@ class NavBarItem extends StatelessWidget {
           icon,
           color: Colors.white,
         ),
-        DoItCubit.get(context).currentIndex == index
+        TasksCubit.get(context).currentIndex == index
             ? const SizedBox()
             : Text(
               text,

@@ -25,7 +25,7 @@ class _buildTaskItemState extends State<buildTaskItem> {
     return Dismissible(
       key: Key(widget.model['id'].toString()),
       onDismissed: (direction) {
-        DoItCubit.get(context).deleteData(
+        TasksCubit.get(context).deleteData(
           id: widget.model['id'],
         );
       },
@@ -235,7 +235,7 @@ class _buildTaskItemState extends State<buildTaskItem> {
                                 widget.isChecked = value!;
                               });
                               if(widget.isChecked==true) {
-                                DoItCubit.get(context).updateDataBase(
+                                TasksCubit.get(context).updateDataBase(
                                   status: 'done',
                                   id: widget.model['id'],
                                 );

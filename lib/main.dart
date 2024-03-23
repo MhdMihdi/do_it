@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DoItCubit()..createDataBase(),
-      child: BlocConsumer<DoItCubit, DoItStates>(
+      create: (context) => TasksCubit()..createDataBase(),
+      child: BlocConsumer<TasksCubit, TasksStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return ScreenUtilInit(

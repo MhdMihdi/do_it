@@ -1,20 +1,20 @@
 part of 'do_it_cubit.dart';
 
-abstract class DoItStates {}
+abstract class TasksStates {}
 
-class AppInitialState extends DoItStates {}
+class AppInitialState extends TasksStates {}
 
-class AppChangeBottomNavBarState extends DoItStates{}
+class AppChangeBottomNavBarState extends TasksStates{}
 
-class AppCreateDataBaseState extends DoItStates{}
+class AppCreateDataBaseState extends TasksStates{}
 
-class AppInsertDataBaseState extends DoItStates{}
+class AppInsertDataBaseState extends TasksStates{}
 
-class AppGetDataBaseState extends DoItStates{}
+class AppGetDataBaseState extends TasksStates{}
 
-class AppUpdateDataBaseState extends DoItStates{}
+class AppUpdateDataBaseState extends TasksStates{}
 
-class AppDeleteDataBaseState extends DoItStates{}
+class AppDeleteDataBaseState extends TasksStates{}
 
 
 

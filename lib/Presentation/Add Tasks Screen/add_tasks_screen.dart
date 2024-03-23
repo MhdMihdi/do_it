@@ -9,7 +9,7 @@ class AddTasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DoItCubit, DoItStates>(
+    return BlocConsumer<TasksCubit, TasksStates>(
       listener: (context, state) {
         if(state is AppInsertDataBaseState)
         {
@@ -18,7 +18,7 @@ class AddTasksScreen extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        DoItCubit cubit=DoItCubit.get(context);
+        TasksCubit cubit=TasksCubit.get(context);
         return Scaffold(
           body: Form(
             key: cubit.formKey,

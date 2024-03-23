@@ -10,11 +10,11 @@ import 'package:sqflite/sqflite.dart';
 
 part 'do_it_state.dart';
 
-class DoItCubit extends Cubit<DoItStates>
+class TasksCubit extends Cubit<TasksStates>
 {
-  DoItCubit() : super(AppInitialState());
+  TasksCubit() : super(AppInitialState());
 
-  static DoItCubit get(context)=>BlocProvider.of(context);
+  static TasksCubit get(context)=>BlocProvider.of(context);
 
   int currentIndex = 0;
    DbMethods db=DbMethods();

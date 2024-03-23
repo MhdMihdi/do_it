@@ -15,11 +15,11 @@ class HomeLayout extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return BlocConsumer<DoItCubit, DoItStates>(
+    return BlocConsumer<TasksCubit, TasksStates>(
       listener: (context, state) {},
       builder: (context, state)
       {
-        DoItCubit cubit=DoItCubit.get(context);
+        TasksCubit cubit=TasksCubit.get(context);
         return Scaffold(
           key: cubit.scaffoldKey,
           appBar: AppBar(

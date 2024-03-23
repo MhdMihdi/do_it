@@ -7,7 +7,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DoItCubit, DoItStates>(
+    return BlocConsumer<TasksCubit, TasksStates>(
       listener: (context, state) {},
       builder: (context, state) {
         return const Center(
