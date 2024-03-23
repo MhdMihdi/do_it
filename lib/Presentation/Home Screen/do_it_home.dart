@@ -28,13 +28,13 @@ class HomeLayout extends StatelessWidget
             ),
           ),
           body: ConditionalBuilder(
-              condition: state is! AppGetDataBaseState,
+              condition: state is! AppGetDataBaseLoadingState,
               builder:(context)=>
-                   Center(
-                     child: CircularProgressIndicator()
-                   ),
+              cubit.screens[cubit.currentIndex],
               fallback: (context)=>
-                   cubit.screens[cubit.currentIndex],
+                  Center(
+                   child: CircularProgressIndicator(),
+                  ),
           ),
           floatingActionButton:ConditionalBuilder(
               condition: cubit.currentIndex==1||cubit.currentIndex==2,

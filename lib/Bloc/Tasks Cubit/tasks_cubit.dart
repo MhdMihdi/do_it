@@ -78,25 +78,13 @@ class TasksCubit extends Cubit<TasksStates>
      emit(AppInsertDataBaseState());
      getDataFromDataBase(db.database!);
     });
-    // await  database!.transaction((txn)
-    // {
-    //   return txn.rawInsert(
-    //       'INSERT INTO tasks(title, date, time, status) VALUES("$title", "$date", "$time", "new")'
-    //   ).then((value) {
-    //     print('$value Inserted Successfully');
-    //     emit(AppInsertDataBaseState());
-    //     getDataFromDataBase(database!);
-    //   }).catchError((error) {
-    //     print('Error when Insert New Record${error.toString()}');
-    //   });
-    // });
   }
 
   void getDataFromDataBase(Database database)
   {
       newTasks=[];
       doneTasks=[];
-
+    emit(AppGetDataBaseLoadingState());
     db.getDataFromDB(database).then((value) {
       for (var element in value)
       {

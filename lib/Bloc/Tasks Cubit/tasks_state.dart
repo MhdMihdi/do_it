@@ -12,6 +12,8 @@ class AppInsertDataBaseState extends TasksStates{}
 
 class AppGetDataBaseState extends TasksStates{}
 
+class AppGetDataBaseLoadingState extends TasksStates{}
+
 class AppUpdateDataBaseState extends TasksStates{}
 
 class AppDeleteDataBaseState extends TasksStates{}
