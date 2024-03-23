@@ -16,9 +16,9 @@ class AppUpdateDataBaseState extends DoItStates{}
 
 class AppDeleteDataBaseState extends DoItStates{}
 
-class AppChangeBottomSheetState extends DoItStates{}
 
-class AppCheckDoneState extends DoItStates{}
+
+
 
 
 

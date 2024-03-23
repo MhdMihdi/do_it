@@ -118,16 +118,7 @@ class DoItCubit extends Cubit<DoItStates>
     });
   }
 
-  // void changeBottomSheetState({
-  //  required bool isShow,
-  //  required IconData icon,
-  //  })
-  // {
-  //   isBottomSheetShown=isShow;
-  //   fabIcon=icon;
-  //   emit(AppChangeBottomSheetState());
-  // }
-  
+
   void updateDataBase({
     required String status,
     required int id,
@@ -152,12 +143,6 @@ class DoItCubit extends Cubit<DoItStates>
     });
   }
 
-  //  checkDone(bool dd,bool done)
-  // {
-  //
-  //    dd=done;
-  //   emit(AppCheckDoneState());
-  //
-  // }
+
   
 }
