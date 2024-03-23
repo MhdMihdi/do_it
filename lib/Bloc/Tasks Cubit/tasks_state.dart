@@ -1,4 +1,4 @@
-part of 'do_it_cubit.dart';
+part of 'tasks_cubit.dart';
 
 abstract class TasksStates {}
 

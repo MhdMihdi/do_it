@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqflite.dart';
 
 
-part 'do_it_state.dart';
+part 'tasks_state.dart';
 
 class TasksCubit extends Cubit<TasksStates>
 {

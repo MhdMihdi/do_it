@@ -1,7 +1,7 @@
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:do_it/Bloc/Tasks%20Cubit/do_it_cubit.dart';
+import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:do_it/Presentation/Home%20Screen/Widgets/home_widgets.dart';
 import 'package:do_it/Util/app_router.dart';
 import 'package:flutter/material.dart';

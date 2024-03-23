@@ -1,4 +1,4 @@
-import 'package:do_it/Bloc/Tasks%20Cubit/do_it_cubit.dart';
+import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:do_it/Util/app_bloc_observer.dart';
 import 'package:do_it/Util/app_router.dart';
 import 'package:flutter/material.dart';
