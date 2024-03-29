@@ -19,16 +19,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return Scaffold(
           body: Column(
             children: [
-              const Text(
-                  'Theme',
+              Text(
+                'Theme',
+                style: Theme.of(context).textTheme.titleSmall,
               ),
               Switch(
                 value: cubit.themeSwitch,
+                activeColor: Colors.teal,
+                inactiveThumbColor: Colors.teal.shade700,
                 onChanged: (value)
                 {
-                   setState(() {
-                     cubit.themeSwitch = value;
-                   });
+                   cubit.themeToggle(value);
                 },
               ),
             ],

@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                   darkTheme: ThemeData(),
-                  themeMode: ThemeMode.light,
+                  themeMode: ThemeCubit.get(context).themeSwitch==false?ThemeMode.light:ThemeMode.dark,
                 );
               }
           );

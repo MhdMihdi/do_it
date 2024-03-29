@@ -10,4 +10,12 @@ class ThemeCubit extends Cubit<ThemeStates> {
 
   bool themeSwitch=false;
 
+  void themeToggle(bool value)
+  {
+    themeSwitch = value;
+
+    emit(ThemeSwitchState());
+
+  }
+
 }
