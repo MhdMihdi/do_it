@@ -36,7 +36,7 @@ Widget defaultFormField({
         : null,
 
     border: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: Colors.teal,
       ),
       borderRadius: BorderRadius.circular(radius),

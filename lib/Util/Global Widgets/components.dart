@@ -4,22 +4,23 @@ import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class buildTaskItem extends StatefulWidget {
+class BuildTaskItem extends StatefulWidget {
   Map model;
   bool isChecked;
   BuildContext context;
 
-  buildTaskItem({
+  BuildTaskItem({
+    super.key,
     required this.model,
     required this.isChecked,
     required this.context,
   });
 
   @override
-  State<buildTaskItem> createState() => _buildTaskItemState();
+  State<BuildTaskItem> createState() => _BuildTaskItemState();
 }
 
-class _buildTaskItemState extends State<buildTaskItem> {
+class _BuildTaskItemState extends State<BuildTaskItem> {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -278,7 +279,7 @@ Widget taskBuilder({
       builder: (context) =>
           ListView.builder(
             itemBuilder: (context, index) =>
-                buildTaskItem(
+                BuildTaskItem(
                   model: tasks[index],
                   isChecked: isDone[index],
                   context: context,

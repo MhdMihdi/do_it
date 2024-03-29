@@ -32,7 +32,7 @@ class HomeLayout extends StatelessWidget
               builder:(context)=>
               cubit.screens[cubit.currentIndex],
               fallback: (context)=>
-                  Center(
+                  const Center(
                    child: CircularProgressIndicator(),
                   ),
           ),
@@ -49,7 +49,7 @@ class HomeLayout extends StatelessWidget
                   );
 
                 },
-                 child: Icon(
+                 child: const Icon(
                   Icons.edit,
                 ),
                ),
