@@ -7,7 +7,7 @@ class NavBarItem extends StatelessWidget {
   final String text;
   final int index;
 
-   NavBarItem({
+   const NavBarItem({
     super.key,
     required this.icon,
     required this.text,

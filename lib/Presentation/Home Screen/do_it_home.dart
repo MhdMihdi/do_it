@@ -64,7 +64,7 @@ class HomeLayout extends StatelessWidget
               cubit.changeIndex(index);
             },
             items:
-            [
+            const [
               NavBarItem(
                   icon: Icons.menu,
                   text: 'Tasks',

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
 
@@ -13,19 +14,19 @@ class DbMethods {
        version: 1,
        onCreate: (database, version)
        {
-         print('Database Created');
+         debugPrint('Database Created');
          database.execute(
              'CREATE TABLE tasks (id INTEGER PRIMARY KEY, title TEXT, date TEXT, time TEXT, status TEXT)'
          ).then((value) {
-           print('Table Created');
+           debugPrint('Table Created');
          }).catchError((error) {
-           print('Error when creating Table${error.toString()}');
+           debugPrint('Error when creating Table${error.toString()}');
          });
        },
        onOpen: (database)
        {
 
-         print('Database Opened');
+         debugPrint('Database Opened');
        },
      );
   }
@@ -45,10 +46,10 @@ class DbMethods {
       return txn.rawInsert(
           'INSERT INTO tasks(title, date, time, status) VALUES("$title", "$date", "$time", "new")'
       ).then((value) {
-        print('$value Inserted Successfully');
+        debugPrint('$value Inserted Successfully');
         getDataFromDB(database!);
       }).catchError((error) {
-        print('Error when Insert New Record${error.toString()}');
+        debugPrint('Error when Insert New Record${error.toString()}');
       });
       });
     }
