@@ -1,4 +1,3 @@
-import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:do_it/Bloc/Theme%20Cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +19,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return Scaffold(
           body: Column(
             children: [
+              const Text(
+                  'Theme',
+              ),
               Switch(
                 value: cubit.themeSwitch,
                 onChanged: (value)

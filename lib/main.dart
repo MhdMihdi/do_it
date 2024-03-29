@@ -45,30 +45,38 @@ class MyApp extends StatelessWidget {
                     scaffoldBackgroundColor: Colors.white,
                     appBarTheme: AppBarTheme(
                       backgroundColor: Colors.teal,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20.0),
                           bottomRight: Radius.circular(20.0),
                         ),
                       ),
                       elevation: 0.0,
-                      centerTitle: true,
+                      centerTitle: false,
                       titleTextStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25.0.sp
+                        color: Colors.white,
+                        fontSize: 30.0.sp
+                       ),
                       ),
-                    ),
-                    floatingActionButtonTheme: FloatingActionButtonThemeData(
+                    floatingActionButtonTheme: const FloatingActionButtonThemeData(
                       backgroundColor: Colors.teal,
                       foregroundColor: Colors.white,
                       elevation: 0.0,
                     ),
-                    progressIndicatorTheme: ProgressIndicatorThemeData(
+                    progressIndicatorTheme: const ProgressIndicatorThemeData(
                       color: Colors.teal,
                     ),
+                    textTheme: const TextTheme(
+                        titleSmall: TextStyle(
+                        fontSize:18,
+                        color: Colors.white,
+                      )
+                    ),
                   ),
+
+
                   darkTheme: ThemeData(),
-                  themeMode: ThemeMode.dark,
+                  themeMode: ThemeMode.light,
                 );
               }
           );
