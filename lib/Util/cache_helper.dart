@@ -14,7 +14,7 @@ class CacheHelper{
     await storage!.write(key: key, value:value );
   }
 
-   static Future<String?> getData({required String key})async
+   static Future<dynamic> getData({required String key})async
   {
     return await storage!.read(key: key);
   }

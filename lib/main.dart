@@ -12,14 +12,20 @@ void main()async {
  WidgetsFlutterBinding.ensureInitialized();
 
   await CacheHelper.init();
-  var themeMode=await CacheHelper.getData(key:'themeMode');
+  String?themeMode=await CacheHelper.getData(key:'themeMode');
+  bool value=themeMode!.toLowerCase()=='true';
   debugPrint(themeMode);
+
   Bloc.observer = MyBlocObserver();
-  runApp(const MyApp());
+  runApp(MyApp(mode: value));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool?mode;
+   const MyApp({
+    super.key,
+    this.mode,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
             ..createDataBase(),
         ),
         BlocProvider(
-          create: (context) => ThemeCubit(),
+          create: (context) => ThemeCubit()..themeToggle(fromStorage: mode),
         ),
       ],
       child: BlocConsumer<ThemeCubit, ThemeStates>(
@@ -91,7 +97,7 @@ class MyApp extends StatelessWidget {
                     useMaterial3: true,
                     scaffoldBackgroundColor: Colors.black,
                   ),
-                  themeMode: ThemeCubit.get(context).themeSwitch==false?ThemeMode.light:ThemeMode.dark,
+                  themeMode: ThemeCubit.get(context).themeSwitch?ThemeMode.dark:ThemeMode.light,
                 );
               }
           );
