@@ -1,3 +1,4 @@
+import 'package:do_it/Util/cache_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
@@ -13,9 +14,9 @@ class ThemeCubit extends Cubit<ThemeStates> {
   void themeToggle(bool value)
   {
     themeSwitch = value;
-
-    emit(ThemeSwitchState());
-
+    CacheHelper.putData(key:'themeMode', value:themeSwitch.toString()).then((value){
+      emit(ThemeSwitchState());
+    });
   }
 
 }

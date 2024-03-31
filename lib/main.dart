@@ -2,14 +2,19 @@ import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:do_it/Bloc/Theme%20Cubit/theme_cubit.dart';
 import 'package:do_it/Util/app_bloc_observer.dart';
 import 'package:do_it/Util/app_router.dart';
+import 'package:do_it/Util/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main()async {
 
+ WidgetsFlutterBinding.ensureInitialized();
+
+  await CacheHelper.init();
+  var themeMode=await CacheHelper.getData(key:'themeMode');
+  debugPrint(themeMode);
   Bloc.observer = MyBlocObserver();
-
   runApp(const MyApp());
 }
 
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ThemeCubit(),
         ),
       ],
-      child: BlocConsumer<TasksCubit, TasksStates>(
+      child: BlocConsumer<ThemeCubit, ThemeStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return ScreenUtilInit(
@@ -55,10 +60,10 @@ class MyApp extends StatelessWidget {
                       elevation: 0.0,
                       centerTitle: false,
                       titleTextStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30.0.sp
-                       ),
-                      ),
+                        fontSize: 30.0.sp,
+                        color: Colors.white
+                      )
+                    ),
                     floatingActionButtonTheme: const FloatingActionButtonThemeData(
                       backgroundColor: Colors.teal,
                       foregroundColor: Colors.white,
@@ -67,14 +72,25 @@ class MyApp extends StatelessWidget {
                     progressIndicatorTheme: const ProgressIndicatorThemeData(
                       color: Colors.teal,
                     ),
-                    textTheme: const TextTheme(
+                    textTheme: TextTheme(
                         titleSmall: TextStyle(
-                        fontSize:18,
-                        color: Colors.white,
-                      )
+                          fontSize:15.sp,
+                          color: Colors.black,
+                        ),
+                        titleLarge: TextStyle(
+                          fontSize: 30.0.sp,
+                          color: Colors.white
+                        ),
+                        labelSmall: TextStyle(
+                          fontSize: 14.0.sp,
+                          color: Colors.grey
+                        )
                     ),
                   ),
-                  darkTheme: ThemeData(),
+                  darkTheme: ThemeData(
+                    useMaterial3: true,
+                    scaffoldBackgroundColor: Colors.black,
+                  ),
                   themeMode: ThemeCubit.get(context).themeSwitch==false?ThemeMode.light:ThemeMode.dark,
                 );
               }

@@ -62,6 +62,7 @@ class HomeLayout extends StatelessWidget
             onTap: (index)
             {
               cubit.changeIndex(index);
+
             },
             items:
             const [
