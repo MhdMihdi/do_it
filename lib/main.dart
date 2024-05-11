@@ -32,12 +32,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-          TasksCubit()
-            ..createDataBase(),
+          create: (context) => ThemeCubit()..themeToggle(fromStorage: mode),
         ),
         BlocProvider(
-          create: (context) => ThemeCubit()..themeToggle(fromStorage: mode),
+          create: (context) => TasksCubit()..createDataBase(),
         ),
       ],
       child: BlocConsumer<ThemeCubit, ThemeStates>(
@@ -55,9 +53,9 @@ class MyApp extends StatelessWidget {
                   theme: ThemeData(
                     useMaterial3: true,
                     scaffoldBackgroundColor: Colors.white,
-                    appBarTheme: AppBarTheme(
+                    appBarTheme: const AppBarTheme(
                       backgroundColor: Colors.teal,
-                      shape: const RoundedRectangleBorder(
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20.0),
                           bottomRight: Radius.circular(20.0),
@@ -66,8 +64,8 @@ class MyApp extends StatelessWidget {
                       elevation: 0.0,
                       centerTitle: false,
                       titleTextStyle: TextStyle(
-                        fontSize: 30.0.sp,
-                        color: Colors.white
+                        color: Colors.white,
+                        fontSize: 30.0,
                       )
                     ),
                     floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -95,7 +93,21 @@ class MyApp extends StatelessWidget {
                   ),
                   darkTheme: ThemeData(
                     useMaterial3: true,
-                    scaffoldBackgroundColor: Colors.black,
+                    scaffoldBackgroundColor: Colors.black12,
+                    textTheme: TextTheme(
+                        titleSmall: TextStyle(
+                          fontSize:15.sp,
+                          color: Colors.white,
+                        ),
+                        titleLarge: TextStyle(
+                            fontSize: 30.0.sp,
+                            color: Colors.white
+                        ),
+                        labelSmall: TextStyle(
+                            fontSize: 14.0.sp,
+                            color: Colors.white60
+                        )
+                    ),
                   ),
                   themeMode: ThemeCubit.get(context).themeSwitch?ThemeMode.dark:ThemeMode.light,
                 );

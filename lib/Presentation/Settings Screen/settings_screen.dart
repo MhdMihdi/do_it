@@ -27,8 +27,6 @@ class SettingsScreen extends StatelessWidget {
                         size: 50.0,
                     ),
                     Column(
-                      //crossAxisAlignment: CrossAxisAlignment.start,
-                      //mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           'Theme',
@@ -44,9 +42,11 @@ class SettingsScreen extends StatelessWidget {
                       child: Switch(
                         value: cubit.themeSwitch,
                         activeColor: Colors.teal,
+                        inactiveTrackColor: Colors.white,
+                        //activeTrackColor: Colors.black12,
                         inactiveThumbColor: Colors.teal.shade700,
                         onChanged: (value)
-                        async{
+                        {
                            cubit.themeToggle(value: value);
 
                         },

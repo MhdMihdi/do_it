@@ -47,14 +47,19 @@ Widget defaultFormField({
 Widget myButton({
   required String title,
   required VoidCallback onPressed
-})
-=>MaterialButton(
-  textColor: Colors.white,
-  color: Colors.teal,
-  onPressed: onPressed,
-  elevation: 0.0,
-  child: Text(
-    title,
-  ),
 
+})
+=>SizedBox(
+  height:50 ,
+  width: 200,
+  child: MaterialButton(
+    textColor: Colors.white,
+    color: Colors.teal,
+    onPressed: onPressed,
+    elevation: 0.0,
+    child: Text(
+      title,
+    ),
+
+  ),
 );

@@ -1,7 +1,9 @@
 import 'package:do_it/Bloc/Tasks%20Cubit/tasks_cubit.dart';
 import 'package:do_it/Presentation/Add%20Tasks%20Screen/Widgets/add_screen_widgets.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class AddTasksScreen extends StatelessWidget {
@@ -13,20 +15,44 @@ class AddTasksScreen extends StatelessWidget {
       listener: (context, state) {
         if(state is AppInsertDataBaseState)
         {
-
           Navigator.pop(context);
         }
       },
       builder: (context, state) {
         TasksCubit cubit=TasksCubit.get(context);
         return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.teal,
+              ),
+              onPressed: ()
+              {
+                Navigator.pop(context);
+              },
+            ),
+          ),
           body: Form(
             key: cubit.formKey,
-            child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children:
                 [
+                  Container(
+                    width: 270.h,
+                    height: 250.w,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/1.png"),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(),
                   defaultFormField(
                     controller: cubit.titleController,
                     type: TextInputType.text,
@@ -91,7 +117,9 @@ class AddTasksScreen extends StatelessWidget {
                     label: 'Task Date',
                     prefix: Icons.calendar_today,
                   ),
-                  const SizedBox(),
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height/15,
+                  ),
                   myButton(
                       title: 'add',
                       onPressed: ()
